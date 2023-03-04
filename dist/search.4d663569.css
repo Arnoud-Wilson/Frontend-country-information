@@ -108,10 +108,10 @@ li {
 }
 
 #single-country {
-  width: 50vw;
+  width: 40vw;
   text-align: left;
-  margin-top: 30px;
-  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   box-shadow: 0 4px 12px #0000001a;
 }
 
@@ -124,6 +124,15 @@ li {
 
 #single-country-flag {
   width: 50px;
+  margin: 20px 0 0 20px;
+}
+
+#single-country p {
+  padding: 0 20px;
+}
+
+.p-bottom {
+  margin-bottom: 20px;
 }
 
 #warning {

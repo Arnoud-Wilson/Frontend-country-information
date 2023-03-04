@@ -112,11 +112,12 @@ li {
 
 
 #single-country {
-    margin-top: 30px;
-    width: 50vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 40vw;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     text-align: left;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 #single-country h2 {
@@ -128,6 +129,15 @@ li {
 
 #single-country-flag {
     width: 50px;
+    margin: 20px 0 0 20px;
+}
+
+#single-country p {
+    padding: 0 20px ;
+}
+
+.p-bottom {
+    margin-bottom: 20px;
 }
 
 #warning {

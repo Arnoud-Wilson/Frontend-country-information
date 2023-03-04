@@ -560,6 +560,9 @@ function hmrAccept(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+const countryDisplayElement = document.getElementById("single-country");
+const inputData = document.getElementById("search-input");
+const searchForm = document.getElementById("country-search-form");
 function getInputData() {
     const inputData = document.getElementById("search-input");
     return inputData.value;
@@ -569,7 +572,6 @@ function getCurrency(result) {
     if (currencyInput[0] && currencyInput[1]) return `${currencyInput[0].name} and ${currencyInput[1].name}`;
     else if (currencyInput[0]) return currencyInput[0].name;
 }
-const countryDisplayElement = document.getElementById("single-country");
 async function getCountryInfo() {
     try {
         const inputText = getInputData();
@@ -579,7 +581,7 @@ async function getCountryInfo() {
         <img src="${result.flag}" alt="country flag" id="single-country-flag">
         <h2>${result.name}</h2>
         <p>${result.name} is situated in ${result.subregion}. It has a population of ${result.population} people.</p>
-        <p>The capital is ${result.capital} and you can pay with ${getCurrency(result)}'s.</p>
+        <p class="p-bottom">The capital is ${result.capital} and you can pay with ${getCurrency(result)}'s.</p>
 `;
     } catch (e) {
         countryDisplayElement.innerHTML = `
@@ -587,8 +589,11 @@ async function getCountryInfo() {
         `;
     }
 }
-const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", getCountryInfo);
+searchForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    getCountryInfo();
+    inputData.value = "";
+});
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
