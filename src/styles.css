@@ -6,7 +6,7 @@ header {
     font-size: 1.8rem;
 }
 
-#outher-container {
+#outer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,3 +66,81 @@ li {
 .Oceania {
     color: purple;
 }
+
+/*////////////////////////////////////search styling////////////////////////////////////////////////*/
+
+#search-link-button {
+    margin: 20px;
+    padding: 10px;
+    font-size: 1.1rem;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+#search-link-button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+#search-input {
+    font-size: 1.1rem;
+    width: 20vw;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid lightgrey;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#search-button {
+    font-size: 1.1rem;
+    padding: 4px 10px 4px 10px;
+    text-transform: uppercase;
+    margin-left: -6;
+    background-color: limegreen;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid lightgrey;
+}
+
+#search-button:hover {
+    cursor: pointer;
+    background-color: lime;
+}
+
+
+#single-country {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 40vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    text-align: left;
+    /*padding: 20px;*/
+}
+
+#single-country h2 {
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#single-country-flag {
+    width: 50px;
+    margin: 20px 0 0 20px;
+}
+
+#single-country p {
+    padding: 0 20px ;
+}
+
+.p-bottom {
+    margin-bottom: 20px;
+}
+
+#warning {
+    color: red;
+}
+

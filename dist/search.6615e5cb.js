@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"lKzq4":[function(require,module,exports) {
+})({"cEwfi":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "fe4256060641b553";
+module.bundle.HMR_BUNDLE_ID = "292c46426615e5cb";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,37 +556,44 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"bNKaB":[function(require,module,exports) {
+},{}],"8gVq6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-async function getAllCountries() {
+const countryDisplayElement = document.getElementById("single-country");
+const inputData = document.getElementById("search-input");
+const searchForm = document.getElementById("country-search-form");
+function getInputData() {
+    const inputData = document.getElementById("search-input");
+    return inputData.value;
+}
+function getCurrency(result) {
+    let currencyInput = result.currencies;
+    if (currencyInput[0] && currencyInput[1]) return `${currencyInput[0].name} and ${currencyInput[1].name}`;
+    else if (currencyInput[0]) return currencyInput[0].name;
+}
+async function getCountryInfo() {
     try {
-        const result = await (0, _axiosDefault.default).get("https://restcountries.com/v2/all");
-        const countries = result.data;
-        console.log(countries);
-        countries.sort((a, b)=>a.population - b.population);
-        const listElement = document.getElementById("country-list");
-        const allCountries = countries.map((country)=>{
-            return `
-            <li>
-                <img src="${country.flag}" alt="country flag" id="flag">
-                <p id="country-name" class=${country.region}>${country.name}</p>
-                <p id="population">Has e population of ${country.population}</p>
-            </li>    
-            `;
-        });
-        listElement.innerHTML = allCountries.join("");
+        const inputText = getInputData();
+        const countryResult = await (0, _axiosDefault.default).get("https://restcountries.com/v2/name/" + inputText);
+        let result = countryResult.data[0];
+        countryDisplayElement.innerHTML = `
+        <img src="${result.flag}" alt="country flag" id="single-country-flag">
+        <h2>${result.name}</h2>
+        <p>${result.name} is situated in ${result.subregion}. It has a population of ${result.population} people.</p>
+        <p class="p-bottom">The capital is ${result.capital} and you can pay with ${getCurrency(result)}'s.</p>
+`;
     } catch (e) {
-        console.error(e);
+        countryDisplayElement.innerHTML = `
+        <h2 id="warning">Land niet gevonden, probeer opnieuw.</h2>
+        `;
     }
 }
-getAllCountries();
-function linkToSearchPage() {
-    window.location.href = "search.html";
-}
-const linkButton = document.getElementById("search-link-button");
-linkButton.addEventListener("click", linkToSearchPage);
+searchForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    getCountryInfo();
+    inputData.value = "";
+});
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -4736,6 +4743,6 @@ Object.entries(HttpStatusCode).forEach(([key, value])=>{
 });
 exports.default = HttpStatusCode;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lKzq4","bNKaB"], "bNKaB", "parcelRequirecb08")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cEwfi","8gVq6"], "8gVq6", "parcelRequirecb08")
 
-//# sourceMappingURL=index.0641b553.js.map
+//# sourceMappingURL=search.6615e5cb.js.map

@@ -28,6 +28,13 @@ async function getAllCountries() {
 
 getAllCountries();
 
+function linkToSearchPage() {
+    window.location.href = "search.html";
+}
+
+const linkButton = document.getElementById("search-link-button");
+linkButton.addEventListener("click", linkToSearchPage);
+
 
 
 
